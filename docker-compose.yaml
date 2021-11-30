@@ -1,0 +1,35 @@
+version: "3.9"
+services:
+
+  api:
+    build: 
+      context: ./api
+    environment:
+      #ConnectionStrings__FindABeer: "Server=database;Port=33060;Database=findabeer;Uid=root;Pwd=mytestpassword;"
+      ConnectionStrings__FindABeer: "User ID=postgres;Password=mytestpassword;Host=database;Port=5432;Database=findabeer;Pooling=true;"
+      DATABASE_NAME: findabeer
+      DATABASE_PORT: 5432
+      DATABASE_PASSWORD: mytestpassword
+      DATABASE_HOST: database
+
+  # database:
+  #   image: mysql:latest
+  #   restart: always
+  #   environment:
+  #     MYSQL_DATABASE: findabeer
+  #     MYSQL_ROOT_PASSWORD: mytestpassword
+  #   ports:
+  #     - "33060:33060"
+
+  database:
+    image: postgres
+    environment:
+      POSTGRES_DB: findabeer
+      POSTGRES_PASSWORD: mytestpassword
+    ports:
+      - 5432:5432
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
