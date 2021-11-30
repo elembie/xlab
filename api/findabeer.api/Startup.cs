@@ -12,7 +12,11 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+
 using findabeer.Models;
+using findabeer.Interfaces;
+using findabeer.Services;
 
 namespace findabeer.api
 {
@@ -38,6 +42,9 @@ namespace findabeer.api
             {
                 opt.UseNpgsql(Configuration.GetConnectionString("FindABeer"));
             });
+
+            services.AddScoped<IVenueService, VenueService>();
+            services.AddAutoMapper(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

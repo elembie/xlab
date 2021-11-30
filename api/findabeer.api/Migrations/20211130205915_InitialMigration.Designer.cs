@@ -10,7 +10,7 @@ using findabeer.Models;
 namespace findabeer.api.Migrations
 {
     [DbContext(typeof(FindABeerContext))]
-    [Migration("20211130004158_InitialMigration")]
+    [Migration("20211130205915_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,6 +32,9 @@ namespace findabeer.api.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("Tags");
                 });
@@ -95,6 +98,9 @@ namespace findabeer.api.Migrations
 
                     b.HasIndex("TagId");
 
+                    b.HasIndex("Url")
+                        .IsUnique();
+
                     b.ToTable("Venues");
                 });
 
@@ -129,7 +135,7 @@ namespace findabeer.api.Migrations
                         .IsRequired();
 
                     b.HasOne("findabeer.Models.Venue", "Venue")
-                        .WithMany("Tags")
+                        .WithMany("VenueTags")
                         .HasForeignKey("VenueId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -146,7 +152,7 @@ namespace findabeer.api.Migrations
 
             modelBuilder.Entity("findabeer.Models.Venue", b =>
                 {
-                    b.Navigation("Tags");
+                    b.Navigation("VenueTags");
                 });
 #pragma warning restore 612, 618
         }

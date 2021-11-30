@@ -31,6 +31,19 @@ namespace findabeer.Models
         [Column(TypeName = "decimal(2,1)")]
         public decimal StarsValue { get; set; }
 
-        public virtual List<VenueTag> Tags { get; set; }
+        public virtual List<VenueTag> VenueTags { get; set; }
+
+        public double DistanceTo(float toLat, float toLong)
+        {
+            // for more complex applications, would move this to a
+            // domain object with additional business logic
+            var d1 = Lat * (Math.PI / 180.0);
+            var num1 = Long * (Math.PI / 180.0);
+            var d2 = toLat * (Math.PI / 180.0);
+            var num2 = toLong * (Math.PI / 180.0) - num1;
+            var d3 = Math.Pow(Math.Sin((d2 - d1) / 2.0), 2.0) +
+                 Math.Cos(d1) * Math.Cos(d2) * Math.Pow(Math.Sin(num2 / 2.0), 2.0);
+            return 6376500.0 * (2.0 * Math.Atan2(Math.Sqrt(d3), Math.Sqrt(1.0 - d3)));
+        }
     }
 }

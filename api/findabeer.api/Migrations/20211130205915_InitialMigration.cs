@@ -80,9 +80,21 @@ namespace findabeer.api.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Tags_Name",
+                table: "Tags",
+                column: "Name",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Venues_TagId",
                 table: "Venues",
                 column: "TagId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Venues_Url",
+                table: "Venues",
+                column: "Url",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_VenueTags_VenueId",

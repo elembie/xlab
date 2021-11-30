@@ -16,12 +16,21 @@ namespace findabeer.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            // TODO: do the data import here in a hacky way
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<VenueTag>()
                 .HasKey(vt => new { vt.TagId, vt.VenueId });
+
+            builder.Entity<Venue>()
+                .HasIndex(v => v.Url)
+                .IsUnique();
+
+            builder.Entity<Tag>()
+                .HasIndex(t => t.Name)
+                .IsUnique();
         }
 
     }
