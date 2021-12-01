@@ -31,3 +31,9 @@ I kept the API as simple as possible but wanted to demonstrate use of EF core as
 ### Front end
 
 I wanted to demonstrate I can connect the React app to the backend and utilise redux for the API calls and shared application state. Due to time constraints there is no styling and all the redux state is in a single file.
+
+## Shortcomings
+
+- API code could be more decoupled and testable, and in any production setting test coverage would be much higher but I wanted to focus on the breadth of the challenge and ran out of time to complete more tests
+- The front end has no styling
+- The data seeding script is a little hacky and needs data integrity tests, however the approach really wouldn't be used in a production setting, it was more of a helper
