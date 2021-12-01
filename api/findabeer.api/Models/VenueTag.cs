@@ -1,4 +1,4 @@
-namespace findabeer.Models
+namespace findabeer.api.Models
 {
     public class VenueTag
     {

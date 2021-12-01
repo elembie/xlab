@@ -4,12 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Cors;
 
-using findabeer.Interfaces;
-using findabeer.Transfer;
+using findabeer.api.Interfaces;
+using findabeer.api.Transfer;
 
 namespace findabeer.api.Controllers
 {
+    // [EnableCors("LocalHostPolicy")]
     [ApiController]
     [Route("api/venues")]
     public class VenueController : ControllerBase
@@ -23,12 +25,7 @@ namespace findabeer.api.Controllers
             _logger = logger;
         }
 
-        // [HttpPost("")]
-        // public async Task<IActionResult> CreateVenuesAsync()
-        // {
-
-        // }
-
+        // [EnableCors("LocalHostPolicy")]
         [HttpGet("search")]
         public async Task<IActionResult> SearchVenuesAsync([FromQuery] VenueSearchParams searchParams)
         {

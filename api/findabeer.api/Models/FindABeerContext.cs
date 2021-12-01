@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.CodeAnalysis;
 
-namespace findabeer.Models
+namespace findabeer.api.Models
 {
     public class FindABeerContext : DbContext
     {

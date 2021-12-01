@@ -1,4 +1,4 @@
-namespace findabeer.Transfer
+namespace findabeer.api.Transfer
 {
     public class VenueSearchParams
     {

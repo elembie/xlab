@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using findabeer.Transfer;
-using findabeer.Transfer.Dtos;
+using findabeer.api.Transfer;
+using findabeer.api.Transfer.Dtos;
 
-namespace findabeer.Interfaces
+namespace findabeer.api.Interfaces
 {
     public interface IVenueService
     {

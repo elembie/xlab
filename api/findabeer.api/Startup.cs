@@ -14,14 +14,16 @@ using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 
-using findabeer.Models;
-using findabeer.Interfaces;
-using findabeer.Services;
+using findabeer.api.Models;
+using findabeer.api.Interfaces;
+using findabeer.api.Services;
 
 namespace findabeer.api
 {
     public class Startup
     {
+        private static readonly string CorsPolicy = "LocalHostPolicy";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -32,7 +34,19 @@ namespace findabeer.api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddCors(o => o.AddPolicy(CorsPolicy, builder => 
+            {
+                builder.WithOrigins("http://localhost:3000")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+                builder.WithOrigins("https://localhost:5001")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+                // builder
+                //     .AllowAnyOrigin()
+                //     .AllowAnyHeader()
+                //     .AllowAnyMethod();
+            }));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -45,6 +59,7 @@ namespace findabeer.api
 
             services.AddScoped<IVenueService, VenueService>();
             services.AddAutoMapper(typeof(Startup));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +75,7 @@ namespace findabeer.api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors(CorsPolicy);
 
             app.UseAuthorization();
 

@@ -1,10 +1,10 @@
 using System.Linq;
 using AutoMapper;
 
-using findabeer.Models;
-using findabeer.Transfer.Dtos;
+using findabeer.api.Models;
+using findabeer.api.Transfer.Dtos;
 
-namespace findabeer.Profiles
+namespace findabeer.api.Profiles
 {
     public class VenueMapping : Profile
     {

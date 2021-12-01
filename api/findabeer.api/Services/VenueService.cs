@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 
-using findabeer.Models;
-using findabeer.Interfaces;
-using findabeer.Transfer;
-using findabeer.Transfer.Dtos;
+using findabeer.api.Models;
+using findabeer.api.Interfaces;
+using findabeer.api.Transfer;
+using findabeer.api.Transfer.Dtos;
 
-namespace findabeer.Services
+namespace findabeer.api.Services
 {
     public class VenueService : IVenueService
     {

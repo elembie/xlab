@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace findabeer.Models 
+namespace findabeer.api.Models 
 {
     public class Tag
     {

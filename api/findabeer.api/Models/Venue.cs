@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace findabeer.Models 
+namespace findabeer.api.Models 
 {
     public class Venue
     {

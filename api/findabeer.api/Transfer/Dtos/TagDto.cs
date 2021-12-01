@@ -1,6 +1,6 @@
 using System;
 
-namespace findabeer.Transfer.Dtos
+namespace findabeer.api.Transfer.Dtos
 {
     public class TagDto
     {
