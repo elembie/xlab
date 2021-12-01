@@ -11,6 +11,10 @@ COPY findabeer.api/ .
 COPY entry.sh .
 RUN rm -fr ./obj ./bin
 
+ENV ASPNETCORE_ENVIRONMENT=Development
+ENV DOTNET_USE_POLLING_FILE_WATCHER=true  
+ENV ASPNETCORE_URLS=http://+:5000 
+
 RUN dotnet restore
 RUN dotnet publish -c Release -o out
 

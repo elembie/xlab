@@ -13,6 +13,15 @@ services:
     # ports:
     #   - 5000:5000
 
+  frontend:
+    build:
+      context: './ui/findabeer'
+    environment:
+      API_URL_BASE: 'https://api:5001'
+      NODE_OPTIONS: '--openssl-legacy-provider'
+    ports:
+      - 3000:3000
+
   database:
     image: postgres
     environment:
