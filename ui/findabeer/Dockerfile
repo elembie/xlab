@@ -1,6 +1,6 @@
 FROM node:17.1
 WORKDIR /app
-ARG URL_BASE="https://api:5000"
+ARG URL_BASE="http://api:5000"
 
 COPY . .
 

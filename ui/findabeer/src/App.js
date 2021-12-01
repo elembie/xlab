@@ -44,7 +44,7 @@ function App() {
       />
 
       <div>
-        {results.map(r => <VenueResult {...r} />)}
+        {results.map(r => <VenueResult key={r.id} {...r} />)}
       </div>
     </div>
   );
