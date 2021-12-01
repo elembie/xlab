@@ -10,6 +10,8 @@ The entire solution is detailed in the `docker-compose.yaml` file, as long as yo
 
 ```$ docker-compose build && docker-compose up```
 
+Then navigate to `http://localhost:3000`.
+
 The initial build might take a while but subsequent runs should be much faster once the images are cached.
 
 ## Approach
