@@ -6,7 +6,7 @@ I attempted to show breadth of knowledge across the stack, due to time constrain
 
 ## Running
 
-The entire solution is detailed in the `docker-compose.yaml` file, as long as you have `docker` and `docker-compose` installed you can from the root directory by;
+The entire solution is detailed in the `docker-compose.yaml` file, as long as you have `docker` and `docker-compose` installed you can run from the root directory by;
 
 ```$ docker-compose build && docker-compose up```
 
