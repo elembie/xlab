@@ -23,26 +23,6 @@ namespace findabeer.api.Services
             _mapper = mapper;
         }
 
-        // public async Task<List<VenueDto>> CreateVenueAndTagsAsync(IEnumerable<VenueDto> venues)
-        // {
-        //     // okay for small data set
-        //     var existingTags = await _context.Tags
-        //         .Distinct()
-        //         .ToListAsync();
-
-        //     // create tags
-        //     var newTags = venues
-        //         .SelectMany(v => v.Tags.Select(t => t.Name))
-        //         .Where(n => !existingTags.Select(t => t.Name).Contains(n))
-        //         .Select(n => new Tag { Name = n })
-        //         .ToList();
-
-        //     await _context.Tags.AddRangeAsync(newTags);
-        //     await _context.SaveChangesAsync();
-
-        //     var tags = existingTags.Concat(newTags).ToList();
-        // }
-
         public async Task<List<VenueDto>> SearchVenuesAsync(VenueSearchParams searchParams)
         {
             var venues = await _context.Venues

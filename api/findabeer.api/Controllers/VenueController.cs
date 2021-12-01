@@ -11,7 +11,6 @@ using findabeer.api.Transfer;
 
 namespace findabeer.api.Controllers
 {
-    // [EnableCors("LocalHostPolicy")]
     [ApiController]
     [Route("api/venues")]
     public class VenueController : ControllerBase
@@ -25,7 +24,6 @@ namespace findabeer.api.Controllers
             _logger = logger;
         }
 
-        // [EnableCors("LocalHostPolicy")]
         [HttpGet("search")]
         public async Task<IActionResult> SearchVenuesAsync([FromQuery] VenueSearchParams searchParams)
         {

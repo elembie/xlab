@@ -8,7 +8,6 @@ namespace findabeer.api.Interfaces
 {
     public interface IVenueService
     {
-        // Task<List<VenueDto>> CreateVenueAndTagsAsync(IEnumerable<VenueDto> venues);
         Task<List<VenueDto>> SearchVenuesAsync(VenueSearchParams searchParams);
     }
 }

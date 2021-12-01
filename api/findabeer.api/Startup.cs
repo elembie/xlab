@@ -34,6 +34,7 @@ namespace findabeer.api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // not in production - just for ease of testability
             services.AddCors(o => o.AddPolicy(CorsPolicy, builder => 
             {
                 builder.WithOrigins("http://localhost:3000")
@@ -42,10 +43,6 @@ namespace findabeer.api
                 builder.WithOrigins("https://localhost:5001")
                     .AllowAnyMethod()
                     .AllowAnyHeader();
-                // builder
-                //     .AllowAnyOrigin()
-                //     .AllowAnyHeader()
-                //     .AllowAnyMethod();
             }));
             services.AddControllers();
             services.AddSwaggerGen(c =>
